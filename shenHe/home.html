@@ -11,14 +11,15 @@
 </head>
 <body>
     <div id="zu">
-        <div :class="completed:state===1">
+        <div class="completed" v-show="state===0">
             <img src="./imgs/chenggong.png" alt="">
             <span>成功</span>
         </div>
-        <div :class="completed:state===0">
+        <div class="completed" v-show="state===1">
             <img src="./imgs/shibai.png" alt="">
             <span>失败</span>
         </div>
     </div>
+    
 </body>
 </html>

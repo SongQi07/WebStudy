@@ -65,7 +65,6 @@
 					case 'completed':
 						return this.items.filter(item=>item.completed)
 						break;
-					
 					default:
 						return this.items
 						break;

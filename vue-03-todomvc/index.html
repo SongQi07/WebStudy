@@ -39,7 +39,7 @@
 						<a :class="{selected:filterStatus==='active'}" href="#/active">Active</a>
 					</li>
 					<li>
-						<a :class="{selected:filterStatus==='compeeted'}" href="#/completed">Completed</a>
+						<a :class="{selected:filterStatus==='competed'}" href="#/completed">Completed</a>
 					</li>
 				</ul>
 				<button @click="removeCompleted" class="clear-completed" v-show="items.length > remaining">Clear completed</button>
