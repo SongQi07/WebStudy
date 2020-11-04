@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        <form action="" @submit.prevent="aaa">
+            姓名：<input type="text" v-model="name">
+            <br>
+            <br>
+            性别：
+            <input name="sex" type="radio" value="0" v-model="sex">男
+            <input type="radio" name="sex" value="1" v-model="sex">女
+            <br><br><br>
+            技能（多选）：
+            <input type="checkbox" name="skills" value="java" v-model="skills">java
+            <input type="checkbox" name="skills" value="vue" v-model="skills">Vue.js
+            <input type="checkbox" name="skills" value="python" v-model="skills">Python
+            <br><br>
+            城市：
+            <select name="citys" v-model="city">
+                <option :value="c.value" v-for="c in citys">{{c.name}}</option>
+            </select>
+            <br><br> 
+            说明(多行文本)：
+            <textarea cols="30" rows="5" v-model="abc"></textarea> 
+            <br><br> 
+            <button type="submit" >提交</button>
+        </form>
+    </div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#demo',
+        data:{
+            name:'',
+            sex:'0',
+            skills:['vue'],
+            citys:[
+                {name:'北京',value:'bj'},
+                {name:'石家庄',value:'sjz'},
+                {name:'广东',value:'gd'},
+                {name:'山东',value:'sd'},
+                {name:'山西',value:'sx'},
+                {name:'上海',value:'sh'},
+                {name:'南京',value:'nj'}
+            ],
+            city:'sh',
+            abc:'',
+        },
+        methods: {
+            aaa:function(){
+                alert(this.name+','+this.sex+','+this.skills+','+this.abc)
+            }
+        },
+    })
+</script>
+</html>

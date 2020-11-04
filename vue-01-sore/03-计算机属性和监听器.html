@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        数学：<input type="text" v-model = "methScore"><br>
+        语文：<input type="text" v-model = "chinaScre"><br>
+        总分（方法-单向）：<input type="text" v-model = "sumScre()"><br>
+        总分（计算属性-单向）：<input type="text" v-model = "sumScre1"><br>
+        总分（计算属性-双向）：<input type="text" v-model = "sumScre2"><br>
+        总分（监听器）：<input type="text" v-model = "sumScre3">
+    </div>
+    
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            methScore:80,
+            chinaScre:90,
+            sumScre3:0
+        },
+        methods: {
+            sumScre:function(){
+                console.log("sumScore被调用")
+                return (this.methScore-0)+(this.chinaScre-0)
+            }
+        },
+        computed: {
+            sumScre1:function(){
+                console.log("计算属性被调用")
+                return (this.methScore-0)+(this.chinaScre-0)
+            },
+            sumScre2:{
+                get:function(){
+                    console.log("sumScore2,get被调用")
+                    return (this.methScore-0)+(this.chinaScre-0)
+                },
+                set:function(newValue){
+                    console.log("sumScre2，set被调用了")
+                    var a = newValue / 2
+                    this.methScore = a
+                    this.chinaScre = a
+                }
+            },
+            
+        },
+        // 监听器
+        watch: {
+            methScore:function(newValue,oldValue){
+                console.log('监听器watch调用了')
+                this.sumScre3 = (newValue-0)+(this.chinaScre-0)
+            }
+        },
+    })
+    // 监听器第二种方法，通过vm实例进行调用
+    vm.$watch('chinaScre',function(newValue){
+        this.sumScre3 = (this.methScore-0)+(newValue-0)
+    })
+    vm.$watch('sumScre3',function(newValue){
+        var b = newValue / 2
+        this.methScore = b
+        this.chinaScre = b
+    })
+</script>
+</html>

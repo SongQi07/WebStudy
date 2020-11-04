@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .limei-enter-active,
+        .limei-leave-active{
+            transition: opacity 10s;
+        }
+        .limei-enter,
+        .limei-leave-to{
+            opacity: 0;
+        }
+        .clm-enter-active,
+        .clm-leave-active{
+            transition: all 10s;
+        }
+        .clm-enter,
+        .clm-leave-to{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+    </style>
+</head>
+<body>
+    <div id="app1">
+        <button @click="show=!show">渐变过渡</button><br><br>
+        <transition name="limei">
+            <div style="width: 200px;height: 200px;background-color: red;" v-show="show"></div>
+        </transition>
+    </div>
+    <div id="app2">
+        <button @click="show=!show">横向渐变过渡</button><br><br>
+        <transition name="clm">
+            <div style="width: 200px;height: 200px;background-color: blue;" v-show="show"></div>
+        </transition>
+    </div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app1',
+        data:{
+            show:true
+        }
+    })
+    var vm1 = new Vue({
+        el:'#app2',
+        data:{
+            show:true
+        }
+    })
+</script>
+</html>

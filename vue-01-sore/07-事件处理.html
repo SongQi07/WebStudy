@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>事件处理 v-on或 @事件名</h2>
+        <button v-on:click="say">Say {{msg}}</button>
+        <button @click="wan('hello',$event)">666</button>
+
+        <h3>事件修饰符</h3>
+        <!-- 防止单击事件继续传播 -->
+        <div @click="todo">
+            <button @click="doThis">点击事件会继续传播</button>
+        </div><br>
+        <div @click="todo">
+            <button @click.stop="doThis">阻止点击事件会继续传播</button>
+        </div><br>
+        <!-- 阻止事件的默认行为 -->
+        <a href="https://www.jd.com" @click.prevent="doA">京东</a><br>
+        <button @click.once="only">点击事件只会触发一次{{index}}</button>
+
+
+        <h3>按键修饰符</h3>
+        <input @keyup.enter="anJian" type="text">
+    </div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'Hello MXG',
+            index:0
+        },
+        methods: {
+            say:function(event){
+                alert(this.msg)
+                alert(event.target.innerHTML)
+            },
+            wan:function(name,event){
+                alert(name)
+                alert(event.target.innerHTML)
+            },
+            doThis:function(){
+                alert('doThis...')
+            },
+            todo:function(){
+                alert('todo...')
+            },
+            doA:function(){
+                alert('阻止默认xingwei')
+            },
+            only:function(){
+                this.index++
+            },
+            anJian:function(){
+                alert('aa')
+            }
+        },
+    })
+</script>
+</html>

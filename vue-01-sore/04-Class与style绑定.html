@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            color: green;
+        }
+        .b{
+            background-color: hotpink;
+        }
+        .c{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h3>Class绑定：v-bind：Class或 ：class</h3>
+        <p v-bind:class="aClass">字符串表达式</p>
+        <p :class="{a:isa, b:isb, c:isc}">对象表达式</p>
+        <p :class="['a','b','c']">数组表达式</p>
+        <h3>style绑定：v-bind:style 或 :style</h3>
+        <p :style="{color:isaa,backgroundColor:isbb,fontSize:iscc+'px'}">style表达式</p>
+    </div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            aClass:'a b c',
+            isa:true,
+            isb:true,
+            isc:true,
+            isaa:'green',
+            isbb:'red',
+            iscc:'50'
+        }
+    })
+</script>
+</html>

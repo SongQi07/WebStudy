@@ -1,0 +1,21 @@
+{
+  "name": "vue-01-sore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1"
+  }
+}
