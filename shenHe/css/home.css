@@ -1,0 +1,16 @@
+.completed{
+    width: 100%;
+    margin: 40% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.completed img{
+    width: 50%;
+}
+.completed span{
+    font-size: 40px;
+    margin-top: 20px;
+}

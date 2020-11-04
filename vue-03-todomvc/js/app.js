@@ -33,9 +33,14 @@
 		el:'#todoapp',
 		data:{
 			items,
-			currentItem:null
+			currentItem:null,
+			filterStatus:'all'
 		},
+		watch: {
+			items:function(newValue,old){
 
+			}
+		},
 		//自定义局部指令
 		directives:{
 			//钩子函数
@@ -50,6 +55,22 @@
 
 		//定义计算属性
 		computed: {
+			//根据不同状态过滤不同数据
+			filterItems(){
+				switch (this.filterStatus) {
+					case 'active':
+						//过滤未完成的数据
+						return this.items.filter(item=>!item.completed)
+						break;
+					case 'completed':
+						return this.items.filter(item=>item.completed)
+						break;
+					
+					default:
+						return this.items
+						break;
+				}
+			},
 			toggleAll:{
 				get(){
 					console.log('get',this.remaining)
@@ -109,4 +130,12 @@
 			}
 		},
 	})
+	window.onhashchange = function(){
+		console.log('hash值改变了',window.location.hash)
+		const hash = window.location.hash.substr(2)||'all'
+		//状态一旦改变就会赋值给filterStatus
+		//定义一个计算属性
+		app.filterStatus = hash
+	}
+	window.onhashchange()
 })(Vue);

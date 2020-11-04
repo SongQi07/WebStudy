@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/overall.css">
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./js/home.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="zu">
+        <div :class="completed:state===1">
+            <img src="./imgs/chenggong.png" alt="">
+            <span>成功</span>
+        </div>
+        <div :class="completed:state===0">
+            <img src="./imgs/shibai.png" alt="">
+            <span>失败</span>
+        </div>
+    </div>
+</body>
+</html>

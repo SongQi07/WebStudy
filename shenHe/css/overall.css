@@ -1,0 +1,158 @@
+/*=================initalize==================*/
+/*html{font-size: 40px}*/
+* {
+	touch-action: pan-y;
+	box-sizing: border-box
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #fff;
+	color: #555;
+	font-size: 14px;
+	font-family: 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	font-size: 100%;
+}
+
+a {
+	color: #555;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+
+ol,
+ul,
+li {
+	list-style: none;
+}
+
+i,
+em {
+	font-style: normal
+}
+
+input,
+textarea,
+select,
+button {
+	font: 14px Verdana, Helvetica, Arial, sans-serif;
+	border: 1px solid #999;
+	outline: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+.cf:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.cf {
+	display: inline-table;
+}
+
+/* Hides from IE-mac \*/
+* html .cf {
+	height: 1%;
+}
+
+.cf {
+	display: block;
+}
+
+/* End hide from IE-mac */
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+button {
+	cursor: pointer;
+	outline: none;
+	border: 0 !important;
+}
+
+@media all and (min-width:310px) {
+	html {
+		font-size: 42px;
+	}
+}
+
+@media all and (min-width:370px) {
+	html {
+		font-size: 50px;
+	}
+}
+
+@media all and (min-width:410px) {
+	html {
+		font-size: 55.2px;
+	}
+}
+
+.blue {
+	color: #165be1;
+}
+
+.gray {
+	color: #666;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	min-height: 100vh;
+	box-sizing: border-box;
+}

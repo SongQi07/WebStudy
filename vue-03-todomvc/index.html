@@ -18,7 +18,7 @@
 				<input v-model="toggleAll" id="toggle-all" class="toggle-all" type="checkbox">
 				<label for="toggle-all">Mark all as complete</label>
 				<ul class="todo-list">
-					<li v-for="(item,index) in items" :key="item.id" :class="{completed: item.completed,editing:item===currentItem}">
+					<li v-for="(item,index) in filterItems" :key="item.id" :class="{completed: item.completed,editing:item===currentItem}">
 						<div class="view">
 							<input class="toggle" type="checkbox" v-model="item.completed">
 							<label @dblclick="toEdit(item)">{{item.content}}</label>
@@ -33,13 +33,13 @@
 				<span class="todo-count"><strong>{{remaining}}</strong> item{{ remaining === 1 ? '' : 's' }} left</span>
 				<ul class="filters">
 					<li>
-						<a class="selected" href="#/">All</a>
+						<a :class="{selected:filterStatus==='all'}" href="#/">All</a>
 					</li>
 					<li>
-						<a href="#/active">Active</a>
+						<a :class="{selected:filterStatus==='active'}" href="#/active">Active</a>
 					</li>
 					<li>
-						<a href="#/completed">Completed</a>
+						<a :class="{selected:filterStatus==='compeeted'}" href="#/completed">Completed</a>
 					</li>
 				</ul>
 				<button @click="removeCompleted" class="clear-completed" v-show="items.length > remaining">Clear completed</button>
