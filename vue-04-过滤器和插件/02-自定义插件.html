@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义插件</title>
+</head>
+<body>
+    <div id="app">
+        <span v-my-directive="content"></span>
+    </div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="./js/plugins.js"></script>
+<script>
+    //1.引入MyPlugin插件
+    Vue.use(MyPlugin);
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            content:'Hello'
+        }
+    })
+    //vm调用插件中的实例方法
+    vm.$myMethod('songqi')
+    //vue调用全局方法
+    Vue.myGlobalMethod()
+</script>
+</html>

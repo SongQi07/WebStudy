@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器</title>
+</head>
+<body>
+    <div id="app">
+        <h3>测试过滤器单个参数</h3>
+        <p>{{content|contentFilter}}</p>
+        <input type="text" :value="content|contentFilter">
+        <h3>测试过滤器单个参数</h3>
+        <p>{{javaScore|add(vueScore, pythonScore)}}</p>
+    </div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    /* 全局过滤器*/
+    /* Vue.filter('contentFilter',(value)=>{
+        if(!value){
+            return ''
+        }
+        return value.toString().toUpperCase().replace('TMD','***').replace('SB','***')
+    }) */
+    new Vue({
+        el: '#app',
+        data: {
+            content: '小伙子TMD就是个SB',
+            javaScore:60,
+            vueScore:80,
+            pythonScore:0,
+        },
+        filters: {//定义局部过滤器
+            contentFilter(value) {//过滤器名称
+                if (!value) {
+                    return ''
+                }
+                return value.toString().toUpperCase().replace('TMD', '***').replace('SB', '***')
+            },
+            add(num1,num2,num3){//add过滤器名称
+                return num1+num2+num3
+            }
+        }
+    })
+</script>
+
+</html>
